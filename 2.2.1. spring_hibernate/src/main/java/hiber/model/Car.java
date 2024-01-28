@@ -1,30 +1,46 @@
 package hiber.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 @Entity
-@Table(name = "Cars")
+@Table
 public class Car {
-    @Column(name = "model")
-    private String model;
-    @Column(name = "series")
-    private String series;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Car(String model, String series) {
+    @Column(name = "model")
+    private String model;
+
+    @Column(name = "series")
+    private int series;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Car() {
+    }
+
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
     }
 
-    public Car() {}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getModel() {
         return model;
@@ -34,21 +50,29 @@ public class Car {
         this.model = model;
     }
 
-    public String getSeries() {
+    public int getSeries() {
         return series;
     }
-    public void setSerires(String series)
-    {this.series = series;}
 
-
-    @OneToOne(mappedBy = "car")
-    private User user;
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setSeries(int series) {
+        this.series = series;
     }
 
-    public Long getId() {
-        return id;
+    public User getUser() {
+        return user;
+    }
+
+    public User setUser(User user) {
+        this.user = user;
+        return user;
+    }
+
+    @Override
+    public String toString() {
+        return "Car {" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }

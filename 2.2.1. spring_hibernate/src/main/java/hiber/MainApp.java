@@ -21,25 +21,20 @@ public class MainApp {
       userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
       userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
 
-      userService.add(new Car("BMW", "X5"));
-      userService.add(new Car("Audi", "00"));
-      userService.add(new Car("Peko", "3"));
-      userService.add(new Car("OKA", "1"));
+      userService.add(new Car("BMW", 5));
+      userService.add(new Car("Audi", 0));
+      userService.add(new Car("Peko", 3));
+      userService.add(new Car("OKA", 1));
 
-      List<Car> cars = userService.listCars();
-      List<User> users = userService.listUsers();
-      for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println();
-      }
-      for(Car car : cars){
-         System.out.println("Id =" + car.getId());
-         System.out.println(("model"+car.getModel()));
-         System.out.println("series" + car.get);
-      }
+
+     User ter = new User("Din", "Don", "user12@mail.ru");
+     User top = new User("Kep", "Kop", "user13@mail.ru");
+
+      Car OKA = new Car("OKA", 3);
+      Car BMW = new Car("BMW", 7);
+
+      userService.add(ter.setCar(OKA).setUser(ter));
+
 
       context.close();
    }

@@ -12,4 +12,10 @@ public interface UserService {
     void add(Car car);
 
     List<Car> listCars();
+
+     User getUserByCarModelAndSeries(String model, int series);
+
+
+
+
 }

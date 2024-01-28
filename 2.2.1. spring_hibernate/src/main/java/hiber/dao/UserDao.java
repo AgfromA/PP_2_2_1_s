@@ -12,4 +12,9 @@ public interface UserDao {
    void add(Car car);
 
    List<Car> listCars();
+
+   User getUserByCarModelAndSeries(String model, int series);
+
+
+
 }
