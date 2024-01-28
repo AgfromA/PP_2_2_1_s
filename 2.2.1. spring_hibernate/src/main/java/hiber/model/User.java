@@ -30,8 +30,9 @@ public class User {
    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
    private Car car;
 
-   public User() {}
-   
+   public User() {
+   }
+
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
       this.lastName = lastName;
@@ -74,9 +75,11 @@ public class User {
       return car;
    }
 
-   public void setCar(Car car) {
+   public Car setCar(Car car) {
       this.car = car;
+      return car;
    }
+
    @Override
    public String toString() {
       return "User {" +
@@ -87,5 +90,3 @@ public class User {
               '}';
    }
 }
-
-

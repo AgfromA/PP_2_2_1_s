@@ -34,8 +34,12 @@ public class MainApp {
       Car BMW = new Car("BMW", 7);
 
       userService.add(ter.setCar(OKA).setUser(ter));
+      userService.add(top.setCar(BMW).setUser(top));
 
-
+      for (User user : userService.listUsers()) {
+         System.out.println(user + " " + user.getCar());
+      }
+     System.out.println(userService.getUserByCarModelAndSeries("OKA", 3));
       context.close();
    }
 }
